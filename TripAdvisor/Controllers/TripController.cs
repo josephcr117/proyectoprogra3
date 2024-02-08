@@ -45,5 +45,22 @@ namespace TripAdvisor.Controllers
 
 			return tripList;
 		}
+
+		public List<Trip> GetTrip(int id)
+		{
+			List<Trip> tripList = GetTrips();
+
+			foreach (Trip trip in tripList) 
+			{
+				if(trip.Id == id)
+				{
+					tripList.Clear();
+					tripList.Add(trip);
+					return tripList;
+				}
+			}
+
+			return null;
+		}
 	}
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="TripAdvisor.Views.main" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="main.aspx.cs" Inherits="TripAdvisor.Views.main"  %>
 
 <!DOCTYPE html>
 
@@ -64,12 +64,12 @@
                                 <div class="card-body">
                                     <h5 class="card-title"><%# Eval("Name")%></h5>
                                     <p class="card-text"><%# Eval("Description")%></p>
-                                    <a href="#" class="btn btn-primary">Book for $<%# Eval("Price")%> /p</a>
+                                    <a href="tripDetail.aspx?id=<%# Eval("Id")%>" class="btn btn-primary">Book for $<%# Eval("Price")%> /p</a>                                    
                                 </div>
                             </div>
                         </ItemTemplate>
                         <FooterTemplate></FooterTemplate>
-                    </asp:Repeater>
+                    </asp:Repeater>                    
                 </div>
             </div>
         </div>

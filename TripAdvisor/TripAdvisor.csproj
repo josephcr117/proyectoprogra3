@@ -69,7 +69,11 @@
   <ItemGroup>
     <Content Include="Assets\images\1.jpg" />
     <Content Include="Assets\images\2.jpg" />
+    <Content Include="Assets\images\2\1.jpg" />
+    <Content Include="Assets\images\2\2.jpg" />
+    <Content Include="Assets\images\2\3.jpg" />
     <Content Include="Assets\images\3.jpg" />
+    <Content Include="Views\tripDetail.aspx" />
     <Content Include="Views\main.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -77,6 +81,13 @@
     <Compile Include="Controllers\TripController.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\tripDetail.aspx.cs">
+      <DependentUpon>tripDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\tripDetail.aspx.designer.cs">
+      <DependentUpon>tripDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\main.aspx.cs">
       <DependentUpon>main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,7 +105,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\images\1\" />
+    <Folder Include="Assets\images\3\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
