@@ -24,18 +24,9 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Home
+                                <a class="nav-link active" href="main.aspx">Home
                         <span class="visually-hidden">(current)</span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">About</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -186,7 +177,6 @@
                                     <div class="row">
                                         <h6>(no additional taxes or booking fees)</h6>
                                     </div>
-                                    <hr />
                                     <div class="row">
                                         <button class="btn btn-primary">Reserve now</button>
                                     </div>

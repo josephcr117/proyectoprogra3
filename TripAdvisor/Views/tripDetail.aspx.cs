@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -12,11 +13,18 @@ namespace TripAdvisor.Views
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			int id = Convert.ToInt16(Request.QueryString["id"]);
+			if (Session["session"] != null)
+			{
+				int id = Convert.ToInt16(Request.QueryString["id"]);
 
-			TripController tripController = new TripController();
-			repTrip.DataSource = tripController.GetTrip(id);
-			repTrip.DataBind();
+				TripController tripController = new TripController();
+				repTrip.DataSource = tripController.GetTrip(id);
+				repTrip.DataBind();
+			}
+			else
+			{				
+				Response.Redirect("main.aspx");
+			}
 		}
 	}
 }

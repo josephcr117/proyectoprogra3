@@ -40,5 +40,41 @@ namespace TripAdvisor.Views
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Repeater repTrips;
+
+		/// <summary>
+		/// Control txtEmail.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmail;
+
+		/// <summary>
+		/// Control txtPwd.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPwd;
+
+		/// <summary>
+		/// Control btnLogin.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlButton btnLogin;
+
+		/// <summary>
+		/// Control btnLogout.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlButton btnLogout;
 	}
 }
