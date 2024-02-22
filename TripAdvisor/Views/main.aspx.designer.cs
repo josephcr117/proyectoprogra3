@@ -42,6 +42,15 @@ namespace TripAdvisor.Views
 		protected global::System.Web.UI.WebControls.Repeater repTrips;
 
 		/// <summary>
+		/// Control divLogin.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLogin;
+
+		/// <summary>
 		/// Control txtEmail.
 		/// </summary>
 		/// <remarks>
@@ -67,6 +76,15 @@ namespace TripAdvisor.Views
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlButton btnLogin;
+
+		/// <summary>
+		/// Control divLogout.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLogout;
 
 		/// <summary>
 		/// Control btnLogout.

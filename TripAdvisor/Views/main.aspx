@@ -70,7 +70,7 @@
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Offcanvas right</h5>
+                    <h5 id="offcanvasRightLabel">Profile</h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -78,7 +78,7 @@
                         <div class="card-header">
                             Login
                         </div>
-                        <div class="card-body">
+                        <div id="divLogin" runat="server" class="card-body">
                             <div class="form-group">
                                 <div class="form-floating mb-3">
                                     <input runat="server" type="email" class="form-control" id="txtEmail" placeholder="name@example.com" />
@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div id="divLogout" runat="server" class="card-body" hidden="hidden">
                             <button runat="server" id="btnLogout" class="btn btn-primary" onserverclick="btnLogout_ServerClick">Logout</button>
                         </div>
                     </div>

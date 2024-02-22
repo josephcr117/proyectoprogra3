@@ -24,19 +24,38 @@ namespace TripAdvisor.Views
 
 		protected void btnLogin_ServerClick(object sender, EventArgs e)
 		{
-			string email = txtEmail.Value;
-			string pwd = txtPwd.Value;
+			FirebaseUser user = new FirebaseUser()
+			{
+				email = txtEmail.Value,
+				password = txtPwd.Value
+			};
 
-			if (email == "admin@tripadvisor.com" && pwd == "admin123")
+			LoginController loginController = new LoginController();
+
+			if (loginController.FirebaseAuth(user))
 			{
 				Session["session"] = true;
 
+				//Mostranto el boton logout
+				divLogout.Attributes.Remove("hidden");
+				//Ocultando el login
+				divLogin.Attributes.Add("hidden", "hidden");
+
 				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login approved')", true);
-			}			
+			}
+			else
+			{
+				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login denied')", true);
+			}
 		}
 
 		protected void btnLogout_ServerClick(object sender, EventArgs e)
 		{
+			//Mostrando el login
+			divLogin.Attributes.Remove("hidden");
+			//Ocultando el boton logout
+			divLogout.Attributes.Add("hidden", "hidden");
+
 			ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Session has been closed')", true);
 			Session.Clear();
 		}
