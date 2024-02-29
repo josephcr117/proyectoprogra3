@@ -76,6 +76,7 @@
     <Content Include="Assets\images\2\2.jpg" />
     <Content Include="Assets\images\2\3.jpg" />
     <Content Include="Assets\images\3.jpg" />
+    <Content Include="DatabaseHelper\StoreProcedures\1. spGetTrips.sql" />
     <Content Include="Views\tripDetail.aspx" />
     <Content Include="Views\main.aspx" />
     <Content Include="Web.config" />
@@ -83,6 +84,7 @@
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\TripController.cs" />
+    <Compile Include="DatabaseHelper\Database.cs" />
     <Compile Include="Models\FirebaseUser.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

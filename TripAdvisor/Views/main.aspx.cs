@@ -13,7 +13,7 @@ namespace TripAdvisor.Views
 	public partial class main : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
-		{
+		{		
 			TripController tripController = new TripController();
 
 			List<Trip> tripList = tripController.GetTrips();
@@ -32,9 +32,13 @@ namespace TripAdvisor.Views
 
 			LoginController loginController = new LoginController();
 
-			if (loginController.FirebaseAuth(user))
+			user = loginController.FirebaseAuth(user);
+
+			if (user.registered)
 			{
-				Session["session"] = true;
+				Session["session"] = user;				
+
+				UserNameIfLogged.InnerText = "Welcome " + user.displayName;
 
 				//Mostranto el boton logout
 				divLogout.Attributes.Remove("hidden");
@@ -58,6 +62,27 @@ namespace TripAdvisor.Views
 
 			ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Session has been closed')", true);
 			Session.Clear();
+		}
+
+		protected void btnSignUp_ServerClick(object sender, EventArgs e)
+		{
+			FirebaseUser user = new FirebaseUser()
+			{
+				displayName = txtDisplayName.Value,
+				email = txtSignUpEmail.Value,
+				password = txtSignUpPwd.Value
+			};
+
+			LoginController loginController = new LoginController();
+
+			if (loginController.FirebaseSigUp(user))
+			{								
+				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Sign Up completed')", true);
+			}
+			else
+			{
+				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Sign Up failed')", true);
+			}
 		}
 	}
 }

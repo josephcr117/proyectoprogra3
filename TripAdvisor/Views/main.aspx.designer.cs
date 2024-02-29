@@ -33,6 +33,15 @@ namespace TripAdvisor.Views
 		protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
 		/// <summary>
+		/// Control UserNameIfLogged.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlAnchor UserNameIfLogged;
+
+		/// <summary>
 		/// Control repTrips.
 		/// </summary>
 		/// <remarks>
@@ -94,5 +103,59 @@ namespace TripAdvisor.Views
 		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
 		/// </remarks>
 		protected global::System.Web.UI.HtmlControls.HtmlButton btnLogout;
+
+		/// <summary>
+		/// Control div1.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl div1;
+
+		/// <summary>
+		/// Control txtDisplayName.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputText txtDisplayName;
+
+		/// <summary>
+		/// Control txtSignUpEmail.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtSignUpEmail;
+
+		/// <summary>
+		/// Control txtSignUpPwd.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtSignUpPwd;
+
+		/// <summary>
+		/// Control btnSignUp.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlButton btnSignUp;
+
+		/// <summary>
+		/// Control div2.
+		/// </summary>
+		/// <remarks>
+		/// Campo generado automáticamente.
+		/// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+		/// </remarks>
+		protected global::System.Web.UI.HtmlControls.HtmlGenericControl div2;
 	}
 }

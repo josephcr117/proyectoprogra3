@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TripAdvisor.Controllers;
+using TripAdvisor.Models;
 
 namespace TripAdvisor.Views
 {
@@ -15,6 +16,10 @@ namespace TripAdvisor.Views
 		{
 			if (Session["session"] != null)
 			{
+				FirebaseUser user = (FirebaseUser)Session["session"];
+
+				UserNameIfLogged.InnerText = "Welcome " + user.displayName;
+
 				int id = Convert.ToInt16(Request.QueryString["id"]);
 
 				TripController tripController = new TripController();

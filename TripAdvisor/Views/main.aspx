@@ -16,7 +16,7 @@
         <div>
             <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">TripAdvisor</a>
+                    <a runat="server" id="UserNameIfLogged" class="navbar-brand" href="#">TripAdvisor</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -91,11 +91,49 @@
                                 <hr />
                                 <div class="row">
                                     <button runat="server" id="btnLogin" class="btn btn-primary" onserverclick="btnLogin_ServerClick">Login</button>
+                                    <hr />
+                                    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">Sign Up</a>
                                 </div>
                             </div>
                         </div>
                         <div id="divLogout" runat="server" class="card-body" hidden="hidden">
                             <button runat="server" id="btnLogout" class="btn btn-primary" onserverclick="btnLogout_ServerClick">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasLeftLabel">
+                <div class="offcanvas-header">
+                    <h5 id="offcanvasLeftLabel">Sign Up</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="card">
+                        <div class="card-header">
+                            Set up your credentials
+                        </div>
+                        <div id="div1" runat="server" class="card-body">
+                            <div class="form-group">
+                                <div class="form-floating mb-3">
+                                    <input runat="server" type="text" class="form-control" id="txtDisplayName" placeholder="John Doe" />
+                                    <label for="txtDisplayName">Name</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input runat="server" type="email" class="form-control" id="txtSignUpEmail" placeholder="name@example.com" />
+                                    <label for="txtSignUpEmail">Email address</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input runat="server" type="password" class="form-control" id="txtSignUpPwd" placeholder="Password" />
+                                    <label for="txtSignUpPwd">Password</label>
+                                </div>
+                                <hr />
+                                <div class="row">
+                                    <button runat="server" id="btnSignUp" class="btn btn-primary" onserverclick="btnSignUp_ServerClick">Sign Up</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="div2" runat="server" class="card-body" hidden="hidden">
                         </div>
                     </div>
                 </div>
