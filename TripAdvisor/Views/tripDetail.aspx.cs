@@ -23,13 +23,40 @@ namespace TripAdvisor.Views
 				int id = Convert.ToInt16(Request.QueryString["id"]);
 
 				TripController tripController = new TripController();
-				repTrip.DataSource = tripController.GetTrip(id);
-				repTrip.DataBind();
+
+				List<Trip> tripList = tripController.GetTrip(id);
+
+				tripPrice.InnerText = tripList[0].Price.ToString();
+
+				repTrip.DataSource = tripList;
+				repTrip.DataBind();				
 			}
 			else
 			{				
 				Response.Redirect("main.aspx");
 			}
+		}
+
+		protected void btnSaveBooked_ServerClick(object sender, EventArgs e)
+		{
+			BookedController bookedController = new BookedController();
+
+			FirebaseUser user = (FirebaseUser)Session["session"];		
+
+			Booked booked = new Booked
+			{
+				TripId = Convert.ToInt16(Request.QueryString["id"]),
+				Email = user.email,
+				Checkin = Convert.ToDateTime(dtCheckin.Value),
+				Checkout = Convert.ToDateTime(dtCheckOut.Value),
+				Adults = Convert.ToInt16(selectAdults.Value),
+				BookedHour = "9:30 am",
+				Total = Convert.ToDecimal(tripPrice.InnerText) * Convert.ToInt16(selectAdults.Value)
+			};
+
+			bookedController.SaveBooked(booked);
+
+			ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your trip was saved successfully')", true);
 		}
 	}
 }

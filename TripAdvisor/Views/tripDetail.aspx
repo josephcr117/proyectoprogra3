@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tripDetail.aspx.cs" Inherits="TripAdvisor.Views.tripDetail" %>
+﻿<%@ Page  EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="tripDetail.aspx.cs" Inherits="TripAdvisor.Views.tripDetail" %>
 
 <!DOCTYPE html>
 
@@ -46,7 +46,6 @@
                     </div>
                 </div>
             </nav>
-
             <%--Repetidor--%>
             <div class="row" style="margin-top: 20px; display: flex; justify-content: center; align-items: center;">
                 <asp:Repeater ID="repTrip" runat="server">
@@ -115,77 +114,77 @@
                                 </button>
                             </div>
                         </div>
-                        <%--Detalle de la reservacion--%>
-                        <div class="card" style="width: 30rem; margin-left: 12px; height: 35rem">
-                            <div class="card-header">
-                                Customize your trip
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="checkin" class="form-label mt-4">Check In</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="date" class="form-control" id="checkin" placeholder="date" autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="checkout" class="form-label mt-4">Check Out</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="date" class="form-control" id="checkout" placeholder="date" autocomplete="off">
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="checkout" class="form-label mt-4">Adults</label>
-                                        </div>
-                                        <div class="col">
-                                            <select class="form-select" id="exampleSelect1">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr />
-                                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
-                                    <label class="btn btn-outline-primary" for="btnradio1">9:30 am</label>
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
-                                    <label class="btn btn-outline-primary" for="btnradio2">1:30 pm</label>
-                                    <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="">
-                                    <label class="btn btn-outline-primary" for="btnradio3">4:30 pm</label>
-                                </div>
-                                <hr />
-                                <div class="form-group">
-                                    <div class="row">
-                                        <label for="checkout" class="form-label mt-4">3 Adults x $78.00</label>
-                                    </div>
-                                    <div class="row">
-                                        <h4>Total $234.00</h4>
-                                    </div>
-                                    <div class="row">
-                                        <h6>(no additional taxes or booking fees)</h6>
-                                    </div>
-                                    <div class="row">
-                                        <button class="btn btn-primary">Reserve now</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </ItemTemplate>
                     <FooterTemplate></FooterTemplate>
                 </asp:Repeater>
+            </div>
+            <%--Detalle de la reservacion--%>
+            <div class="card" style="width: 30rem; margin-left: 12px; height: 35rem">
+                <div class="card-header">
+                    Customize your trip                                
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="dtCheckin" class="form-label mt-4">Check In</label>
+                            </div>
+                            <div class="col">
+                                <input runat="server" type="date" class="form-control" id="dtCheckin" placeholder="date" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="checkout" class="form-label mt-4">Check Out</label>
+                            </div>
+                            <div class="col">
+                                <input runat="server" type="date" class="form-control" id="dtCheckOut" placeholder="date" autocomplete="off" />
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col">
+                                <label for="checkout" class="form-label mt-4">Adults</label>
+                            </div>
+                            <div class="col">
+                                <select runat="server" class="form-select" id="selectAdults">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="" />
+                        <label class="btn btn-outline-primary" for="btnradio1">9:30 am</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="" />
+                        <label class="btn btn-outline-primary" for="btnradio2">1:30 pm</label>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="" />
+                        <label class="btn btn-outline-primary" for="btnradio3">4:30 pm</label>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <div class="row">
+                            <label for="checkout" class="form-label mt-4">3 Adults x $<label runat="server" id="tripPrice"></label></label>
+                        </div>
+                        <div class="row">
+                            <h4>Total $234.00</h4>
+                        </div>
+                        <div class="row">
+                            <h6>(no additional taxes or booking fees)</h6>
+                        </div>
+                        <div class="row">
+                            <button runat="server" id="btnSaveBooked" class="btn btn-primary" onserverclick="btnSaveBooked_ServerClick">Reserve now</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
