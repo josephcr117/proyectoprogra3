@@ -34,22 +34,29 @@ namespace TripAdvisor.Views
 
 			user = loginController.FirebaseAuth(user);
 
-			if (user.registered)
+			if (user != null)
 			{
-				Session["session"] = user;				
+				if (user.registered)
+				{
+					Session["session"] = user;
 
-				UserNameIfLogged.InnerText = "Welcome " + user.displayName;
+					UserNameIfLogged.InnerText = "Welcome " + user.displayName;
 
-				//Mostranto el boton logout
-				divLogout.Attributes.Remove("hidden");
-				//Ocultando el login
-				divLogin.Attributes.Add("hidden", "hidden");
+					//Mostranto el boton logout
+					divLogout.Attributes.Remove("hidden");
+					//Ocultando el login
+					divLogin.Attributes.Add("hidden", "hidden");
 
-				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login approved')", true);
+					ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login approved')", true);
+				}
+				else
+				{
+					ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login denied')", true);
+				}
 			}
 			else
 			{
-				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Login denied')", true);
+				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('User not found')", true);
 			}
 		}
 

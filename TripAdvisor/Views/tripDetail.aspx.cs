@@ -45,10 +45,10 @@ namespace TripAdvisor.Views
 
 			Booked booked = new Booked
 			{
-				TripId = Convert.ToInt16(Request.QueryString["id"]),
+				Id = Convert.ToInt16(Request.QueryString["id"]),
 				Email = user.email,
-				Checkin = Convert.ToDateTime(dtCheckin.Value),
-				Checkout = Convert.ToDateTime(dtCheckOut.Value),
+				Checkin = dtCheckin.Value,
+				Checkout = dtCheckOut.Value,
 				Adults = Convert.ToInt16(selectAdults.Value),
 				BookedHour = "9:30 am",
 				Total = Convert.ToDecimal(tripPrice.InnerText) * Convert.ToInt16(selectAdults.Value)

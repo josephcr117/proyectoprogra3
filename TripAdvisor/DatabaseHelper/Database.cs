@@ -17,14 +17,23 @@ namespace TripAdvisor.DatabaseHelper
 
 		public DataTable GetTrips()
 		{
-			return Fill("spGetTrips");
+			return Fill("spGetTrips", null);
+		}
+
+		public DataTable GetBooked(string email)
+		{
+			List<SqlParameter> paramList = new List<SqlParameter>();			
+
+			paramList.Add(new SqlParameter("@email", email));
+
+			return Fill("spGetBooked", paramList);
 		}
 
 		public void SaveBooked(Booked booked)
 		{
 			List<SqlParameter> paramList = new List<SqlParameter>();
 
-			paramList.Add(new SqlParameter("@tripId", booked.TripId));
+			paramList.Add(new SqlParameter("@tripId", booked.Id));
 			paramList.Add(new SqlParameter("@email", booked.Email));
 			paramList.Add(new SqlParameter("@checkin", booked.Checkin));
 			paramList.Add(new SqlParameter("@checkout", booked.Checkout));
@@ -36,7 +45,7 @@ namespace TripAdvisor.DatabaseHelper
 		}
 		
 
-		public DataTable Fill(string storedProcedure)
+		public DataTable Fill(string storedProcedure, List<SqlParameter> paramList)
 		{
 			//control de errores
 			try
@@ -52,6 +61,14 @@ namespace TripAdvisor.DatabaseHelper
 					cmd.CommandType = CommandType.StoredProcedure;
 					//le damos el noombre del store procedure
 					cmd.CommandText = storedProcedure;
+
+					if (paramList != null)
+					{
+						foreach (SqlParameter param in paramList)
+						{
+							cmd.Parameters.Add(param);
+						}
+					}					
 
 					//creamos el objeto que almacena los datos
 					DataTable ds = new DataTable();
@@ -86,9 +103,12 @@ namespace TripAdvisor.DatabaseHelper
 					//le damos el noombre del store procedure
 					cmd.CommandText = storedProcedure;
 
-					foreach (SqlParameter param in paramList)
+					if (paramList != null)
 					{
-						cmd.Parameters.Add(param);
+						foreach (SqlParameter param in paramList)
+						{
+							cmd.Parameters.Add(param);
+						}
 					}
 
 					cmd.ExecuteNonQuery();					

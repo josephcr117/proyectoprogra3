@@ -1,4 +1,4 @@
-﻿<%@ Page  EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="tripDetail.aspx.cs" Inherits="TripAdvisor.Views.tripDetail" %>
+﻿<%@ Page EnableEventValidation="false" Language="C#" AutoEventWireup="true" CodeBehind="tripDetail.aspx.cs" Inherits="TripAdvisor.Views.tripDetail" %>
 
 <!DOCTYPE html>
 
@@ -39,10 +39,6 @@
                                 </div>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-sm-2" type="search" placeholder="Search">
-                            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                        </form>
                     </div>
                 </div>
             </nav>
@@ -52,42 +48,53 @@
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
                         <%--Detalle del trip--%>
-                        <div class="card mb-3" style="width: 18rem; margin-left: 12px; height: 35rem">
+                        <div class="card mb-3" style="width: 18rem; margin-left: 12px; height:auto">
                             <h3 class="card-header"><%# Eval("Name")%></h3>
                             <img src="<%# Eval("PhotoPath")%>" class="d-block w-100" alt="..." />
                             <div class="card-body">
                             </div>
                             <ul class="list-group list-group-flush">
-                                <div class="row">
-                                    <div class="col-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-hearts" viewBox="0 0 16 16">
-                                            <path fill-rule="evenodd" d="M11.5 1.246c.832-.855 2.913.642 0 2.566-2.913-1.924-.832-3.421 0-2.566M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4m13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276ZM15 2.165c.555-.57 1.942.428 0 1.711-1.942-1.283-.555-2.281 0-1.71Z" />
-                                        </svg>
+                                <!-- Información del usuario -->
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-hearts" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M11.5 1.246c.832-.855 2.913.642 0 2.566-2.913-1.924-.832-3.421 0-2.566M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0m-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4m13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276ZM15 2.165c.555-.57 1.942.428 0 1.711-1.942-1.283-.555-2.281 0-1.71Z" />
+                                            </svg>
+                                        </div>
+                                        <div class="col-10">
+                                            9,836 opiniones
+                                        </div>
                                     </div>
-                                    <div class="col-10">
-                                        <li class="list-group-item">9,836 opiniones</li>
+                                </li>
+
+                                <!-- Ubicación del hotel -->
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                            </svg>
+                                        </div>
+                                        <div class="col-10">
+                                            N.º 4 de 95 hoteles en Legian
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
-                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
-                                        </svg>
+                                </li>
+
+                                <!-- Número de contacto -->
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
+                                                <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+                                            </svg>
+                                        </div>
+                                        <div class="col-10">
+                                            +160322508000
+                                        </div>
                                     </div>
-                                    <div class="col-10">
-                                        <li class="list-group-item">N.º 4 de 95 hoteles en Legian</li>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-2">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone" viewBox="0 0 16 16">
-                                            <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
-                                        </svg>
-                                    </div>
-                                    <div class="col-10">
-                                        <li class="list-group-item">+160322508000</li>
-                                    </div>
-                                </div>
+                                </li>
                             </ul>
                         </div>
                         <%--Carrousel de imagenes--%>
@@ -117,71 +124,71 @@
                     </ItemTemplate>
                     <FooterTemplate></FooterTemplate>
                 </asp:Repeater>
-            </div>
-            <%--Detalle de la reservacion--%>
-            <div class="card" style="width: 30rem; margin-left: 12px; height: 35rem">
-                <div class="card-header">
-                    Customize your trip                                
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col">
-                                <label for="dtCheckin" class="form-label mt-4">Check In</label>
-                            </div>
-                            <div class="col">
-                                <input runat="server" type="date" class="form-control" id="dtCheckin" placeholder="date" autocomplete="off" />
-                            </div>
-                        </div>
+                <%--Detalle de la reservacion--%>
+                <div class="card" style="width: 30rem; margin-left: 12px; height: 35rem">
+                    <div class="card-header">
+                        Customize your trip                                
                     </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col">
-                                <label for="checkout" class="form-label mt-4">Check Out</label>
-                            </div>
-                            <div class="col">
-                                <input runat="server" type="date" class="form-control" id="dtCheckOut" placeholder="date" autocomplete="off" />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col">
-                                <label for="checkout" class="form-label mt-4">Adults</label>
-                            </div>
-                            <div class="col">
-                                <select runat="server" class="form-select" id="selectAdults">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="dtCheckin" class="form-label mt-4">Check In</label>
+                                </div>
+                                <div class="col">
+                                    <input runat="server" type="date" class="form-control" id="dtCheckin" placeholder="date" autocomplete="off" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <hr />
-                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="" />
-                        <label class="btn btn-outline-primary" for="btnradio1">9:30 am</label>
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="" />
-                        <label class="btn btn-outline-primary" for="btnradio2">1:30 pm</label>
-                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="" />
-                        <label class="btn btn-outline-primary" for="btnradio3">4:30 pm</label>
-                    </div>
-                    <hr />
-                    <div class="form-group">
-                        <div class="row">
-                            <label for="checkout" class="form-label mt-4">3 Adults x $<label runat="server" id="tripPrice"></label></label>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="checkout" class="form-label mt-4">Check Out</label>
+                                </div>
+                                <div class="col">
+                                    <input runat="server" type="date" class="form-control" id="dtCheckOut" placeholder="date" autocomplete="off" />
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <h4>Total $234.00</h4>
+                        <hr />
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col">
+                                    <label for="checkout" class="form-label mt-4">Adults</label>
+                                </div>
+                                <div class="col">
+                                    <select runat="server" class="form-select" id="selectAdults">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
-                        <div class="row">
-                            <h6>(no additional taxes or booking fees)</h6>
+                        <hr />
+                        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="" />
+                            <label class="btn btn-outline-primary" for="btnradio1">9:30 am</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="" />
+                            <label class="btn btn-outline-primary" for="btnradio2">1:30 pm</label>
+                            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" checked="" />
+                            <label class="btn btn-outline-primary" for="btnradio3">4:30 pm</label>
                         </div>
-                        <div class="row">
-                            <button runat="server" id="btnSaveBooked" class="btn btn-primary" onserverclick="btnSaveBooked_ServerClick">Reserve now</button>
+                        <hr />
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="checkout" class="form-label mt-4">3 Adults x $<label runat="server" id="tripPrice"></label></label>
+                            </div>
+                            <div class="row">
+                                <h4>Total $234.00</h4>
+                            </div>
+                            <div class="row">
+                                <h6>(no additional taxes or booking fees)</h6>
+                            </div>
+                            <div class="row">
+                                <button runat="server" id="btnSaveBooked" class="btn btn-primary" onserverclick="btnSaveBooked_ServerClick">Reserve now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
