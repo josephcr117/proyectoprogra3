@@ -11,9 +11,23 @@ namespace TripAdvisor.Controllers
 	{
 		public void SaveBooked(Booked booked)
 		{
+			try
+			{
+				DatabaseHelper.Database database = new DatabaseHelper.Database();
+
+				database.SaveBooked(booked);
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}			
+		}
+
+		public void DeleteBooked(int bookedId)
+		{
 			DatabaseHelper.Database database = new DatabaseHelper.Database();
 
-			database.SaveBooked(booked);
+			database.DeleteBooked(bookedId);
 		}
 
 		public List<Booked> GetBooked(string email)

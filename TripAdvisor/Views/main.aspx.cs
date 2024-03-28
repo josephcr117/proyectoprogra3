@@ -16,7 +16,7 @@ namespace TripAdvisor.Views
 		{		
 			TripController tripController = new TripController();
 
-			List<Trip> tripList = tripController.GetTrips();
+			List<Trip> tripList = tripController.GetTrips(string.Empty);
 
 			repTrips.DataSource = tripList;
 			repTrips.DataBind();
@@ -90,6 +90,18 @@ namespace TripAdvisor.Views
 			{
 				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Sign Up failed')", true);
 			}
+		}
+
+		protected void btnSearch_ServerClick(object sender, EventArgs e)
+		{
+			string criteria = txtSearch.Value;
+
+			TripController tripController = new TripController();
+
+			List<Trip> tripList = tripController.GetTrips(criteria);
+
+			repTrips.DataSource = tripList;
+			repTrips.DataBind();
 		}
 	}
 }

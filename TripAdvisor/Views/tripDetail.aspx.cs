@@ -29,34 +29,42 @@ namespace TripAdvisor.Views
 				tripPrice.InnerText = tripList[0].Price.ToString();
 
 				repTrip.DataSource = tripList;
-				repTrip.DataBind();				
+				repTrip.DataBind();
 			}
 			else
-			{				
+			{
 				Response.Redirect("main.aspx");
 			}
 		}
 
 		protected void btnSaveBooked_ServerClick(object sender, EventArgs e)
 		{
-			BookedController bookedController = new BookedController();
-
-			FirebaseUser user = (FirebaseUser)Session["session"];		
-
-			Booked booked = new Booked
+			try
 			{
-				Id = Convert.ToInt16(Request.QueryString["id"]),
-				Email = user.email,
-				Checkin = dtCheckin.Value,
-				Checkout = dtCheckOut.Value,
-				Adults = Convert.ToInt16(selectAdults.Value),
-				BookedHour = "9:30 am",
-				Total = Convert.ToDecimal(tripPrice.InnerText) * Convert.ToInt16(selectAdults.Value)
-			};
+				BookedController bookedController = new BookedController();
 
-			bookedController.SaveBooked(booked);
+				FirebaseUser user = (FirebaseUser)Session["session"];
 
-			ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your trip was saved successfully')", true);
+				Booked booked = new Booked
+				{
+					Id = Convert.ToInt16(Request.QueryString["id"]),
+					Email = user.email,
+					Checkin = dtCheckin.Value,
+					Checkout = dtCheckOut.Value,
+					Adults = Convert.ToInt16(selectAdults.Value),
+					BookedHour = "9:30 am",
+					Total = Convert.ToDecimal(tripPrice.InnerText) * Convert.ToInt16(selectAdults.Value)
+				};
+
+				bookedController.SaveBooked(booked);
+
+				ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your trip was saved successfully')", true);
+			}
+			catch (Exception ex)
+			{
+				alertError.InnerText = ex.Message;
+				alertError.Attributes.Remove("hidden");
+			}
 		}
 	}
 }

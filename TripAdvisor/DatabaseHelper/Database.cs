@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
 using TripAdvisor.Models;
+using TripAdvisor.Views;
 
 namespace TripAdvisor.DatabaseHelper
 {
@@ -20,6 +21,15 @@ namespace TripAdvisor.DatabaseHelper
 			return Fill("spGetTrips", null);
 		}
 
+		public DataTable GetTrips(string criteria)
+		{
+			List<SqlParameter> paramList = new List<SqlParameter>();
+
+			paramList.Add(new SqlParameter("@name", criteria));
+
+			return Fill("spSearchTrip", paramList);
+		}
+
 		public DataTable GetBooked(string email)
 		{
 			List<SqlParameter> paramList = new List<SqlParameter>();			
@@ -31,19 +41,34 @@ namespace TripAdvisor.DatabaseHelper
 
 		public void SaveBooked(Booked booked)
 		{
+			try
+			{
+				List<SqlParameter> paramList = new List<SqlParameter>();
+
+				paramList.Add(new SqlParameter("@tripId", booked.Id));
+				paramList.Add(new SqlParameter("@email", booked.Email));
+				paramList.Add(new SqlParameter("@checkin", booked.Checkin));
+				paramList.Add(new SqlParameter("@checkout", booked.Checkout));
+				paramList.Add(new SqlParameter("@adults", booked.Adults));
+				paramList.Add(new SqlParameter("@bookedHour", booked.BookedHour));
+				paramList.Add(new SqlParameter("@total", booked.Total));
+
+				Execute("spSaveBooked", paramList);
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}			
+		}
+
+		public void DeleteBooked(int bookedId)
+		{
 			List<SqlParameter> paramList = new List<SqlParameter>();
 
-			paramList.Add(new SqlParameter("@tripId", booked.Id));
-			paramList.Add(new SqlParameter("@email", booked.Email));
-			paramList.Add(new SqlParameter("@checkin", booked.Checkin));
-			paramList.Add(new SqlParameter("@checkout", booked.Checkout));
-			paramList.Add(new SqlParameter("@adults", booked.Adults));
-			paramList.Add(new SqlParameter("@bookedHour", booked.BookedHour));
-			paramList.Add(new SqlParameter("@total", booked.Total));
+			paramList.Add(new SqlParameter("@bookedId", bookedId));
 
-			Execute("spSaveBooked", paramList);
+			Execute("spDeleteBooked", paramList);
 		}
-		
 
 		public DataTable Fill(string storedProcedure, List<SqlParameter> paramList)
 		{

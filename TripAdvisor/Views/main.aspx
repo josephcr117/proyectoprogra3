@@ -40,7 +40,9 @@
                                     <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
                             </li>
-                        </ul>                       
+                        </ul>
+                        <input runat="server" id="txtSearch" class="form-control me-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button id="btnSearch" runat="server" class="btn btn-secondary my-2 my-sm-0" type="submit" onserverclick="btnSearch_ServerClick">Search</button>
                     </div>
                 </div>
             </nav>

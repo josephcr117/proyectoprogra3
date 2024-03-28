@@ -30,7 +30,7 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Home
+                                <a class="nav-link active" href="main.aspx">Home
                          <span class="visually-hidden">(current)</span>
                                 </a>
                             </li>
@@ -87,6 +87,7 @@
                                     </div>
                                     <hr>
                                     <p class="card-text"><small class="text-muted">Created: <%# Eval("Created")%></small></p>
+                                    <button id="btnDelete" runat="server" type="button" dataid='<%# Eval("BookedId")%>' onserverclick="btnDelete_ServerClick" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </ItemTemplate>

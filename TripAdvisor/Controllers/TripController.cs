@@ -9,14 +9,23 @@ namespace TripAdvisor.Controllers
 {
 	public class TripController
 	{
-		public List<Trip> GetTrips()
+		public List<Trip> GetTrips(string criteria)
 		{
 			List<Trip> tripList = new List<Trip>();
-			
+			DataTable dsTrips;
+
 			//Ahora usamos la base de datos
 			DatabaseHelper.Database database = new DatabaseHelper.Database();
-		    DataTable dsTrips =	database.GetTrips();
 
+			if (criteria == string.Empty)
+			{
+				dsTrips = database.GetTrips();
+			}
+			else
+			{
+				dsTrips = database.GetTrips(criteria);
+			}
+		    
 			foreach(DataRow dr in dsTrips.Rows)
 			{
 				tripList.Add(new Trip
@@ -34,7 +43,7 @@ namespace TripAdvisor.Controllers
 
 		public List<Trip> GetTrip(int id)
 		{
-			List<Trip> tripList = GetTrips();
+			List<Trip> tripList = GetTrips(string.Empty);
 
 			foreach (Trip trip in tripList) 
 			{

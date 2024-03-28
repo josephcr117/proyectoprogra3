@@ -48,7 +48,7 @@
                     <HeaderTemplate></HeaderTemplate>
                     <ItemTemplate>
                         <%--Detalle del trip--%>
-                        <div class="card mb-3" style="width: 18rem; margin-left: 12px; height:auto">
+                        <div class="card mb-3" style="width: 18rem; margin-left: 12px; height: auto">
                             <h3 class="card-header"><%# Eval("Name")%></h3>
                             <img src="<%# Eval("PhotoPath")%>" class="d-block w-100" alt="..." />
                             <div class="card-body">
@@ -188,6 +188,9 @@
                             </div>
                             <div class="row">
                                 <button runat="server" id="btnSaveBooked" class="btn btn-primary" onserverclick="btnSaveBooked_ServerClick">Reserve now</button>
+                            </div>
+                            <div runat="server" id="alertError" class="alert alert-danger" hidden="hidden" role="alert">
+                                
                             </div>
                         </div>
                     </div>
