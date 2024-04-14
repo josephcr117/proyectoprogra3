@@ -12,7 +12,7 @@ namespace TripAdvisor.Controllers
 {
 	public class LoginController
 	{
-		string key = "AIzaSyDekydHLw2t3lwDS-KZM1WJ1LuvaUckLlI";
+		string key = "AIzaSyAqjSJaCB9-PfMRLcx9kMp7SSiJuTFdcAY";
 
 		public FirebaseUser FirebaseAuth(FirebaseUser user)
 		{

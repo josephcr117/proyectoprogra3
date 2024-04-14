@@ -23,7 +23,7 @@
                     <div class="collapse navbar-collapse" id="navbarColor01">
                         <ul class="navbar-nav me-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Home
+                                <a class="nav-link active" href="main.aspx">Home
                                     <span class="visually-hidden">(current)</span>
                                 </a>
                             </li>
@@ -34,8 +34,7 @@
                                 <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="myTrips.aspx">My Trips</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="myBooks.aspx">Book Wish List</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
