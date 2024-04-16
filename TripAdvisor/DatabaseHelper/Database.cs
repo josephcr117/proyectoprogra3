@@ -61,7 +61,29 @@ namespace TripAdvisor.DatabaseHelper
 			}			
 		}
 
-		public void DeleteBooked(int bookedId)
+        public void FavBook(Booked booked)
+        {
+            try
+            {
+                List<SqlParameter> paramList = new List<SqlParameter>();
+
+                paramList.Add(new SqlParameter("@tripId", booked.Id));
+                paramList.Add(new SqlParameter("@email", booked.Email));
+                paramList.Add(new SqlParameter("@checkin", booked.Checkin));
+                paramList.Add(new SqlParameter("@checkout", booked.Checkout));
+                paramList.Add(new SqlParameter("@adults", booked.Adults));
+                paramList.Add(new SqlParameter("@bookedHour", booked.BookedHour));
+                paramList.Add(new SqlParameter("@total", booked.Total));
+
+                Execute("spFavBook", paramList);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteBooked(int bookedId)
 		{
 			List<SqlParameter> paramList = new List<SqlParameter>();
 
@@ -70,7 +92,16 @@ namespace TripAdvisor.DatabaseHelper
 			Execute("spDeleteBooked", paramList);
 		}
 
-		public DataTable Fill(string storedProcedure, List<SqlParameter> paramList)
+        public void DeleteFavBook(int bookedId)
+        {
+            List<SqlParameter> paramList = new List<SqlParameter>();
+
+            paramList.Add(new SqlParameter("@bookedId", bookedId));
+
+            Execute("spDeleteBooked", paramList);
+        }
+
+        public DataTable Fill(string storedProcedure, List<SqlParameter> paramList)
 		{
 			//control de errores
 			try

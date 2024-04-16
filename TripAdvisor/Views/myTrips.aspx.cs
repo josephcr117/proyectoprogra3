@@ -16,8 +16,14 @@ namespace TripAdvisor.Views
 		{
 			if (Session["session"] != null)
 			{
-				LoadBooked();
-			}
+				FirebaseUser user = (FirebaseUser)Session["session"];
+				Session["userEmail"] = user.email;
+				Session["userName"] = user.displayName;
+
+                LoadBooked();
+				bookPayment();
+
+            }
 			else
 			{
 				Response.Redirect("main.aspx");
@@ -34,6 +40,17 @@ namespace TripAdvisor.Views
 			repBooked.DataBind();
 		}
 
+		public void bookPayment()
+		{
+			BookedController bookedController = new BookedController();
+
+            FirebaseUser user = (FirebaseUser)Session["session"];
+
+			repPayment.DataSource = bookedController.GetBooked(user.email);
+            repPayment.DataBind();
+
+        }
+
 		protected void btnDelete_ServerClick(object sender, EventArgs e)
 		{
 			var button = (HtmlButton)sender;
@@ -43,8 +60,9 @@ namespace TripAdvisor.Views
 			{
 				BookedController bookedController = new BookedController();
 				bookedController.DeleteBooked(dataId);
-				LoadBooked();
+				bookPayment();
+                LoadBooked();
 			}
 		}
-	}
+    }
 }

@@ -23,14 +23,35 @@ namespace TripAdvisor.Controllers
 			}			
 		}
 
-		public void DeleteBooked(int bookedId)
+        public void FavBook(Booked booked)
+        {
+            try
+            {
+                DatabaseHelper.Database database = new DatabaseHelper.Database();
+
+                database.FavBook(booked);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteBooked(int bookedId)
 		{
 			DatabaseHelper.Database database = new DatabaseHelper.Database();
 
 			database.DeleteBooked(bookedId);
 		}
 
-		public List<Booked> GetBooked(string email)
+        public void DeleteFavBook(int bookedId)
+        {
+            DatabaseHelper.Database database = new DatabaseHelper.Database();
+
+            database.DeleteFavBook(bookedId);
+        }
+
+        public List<Booked> GetBooked(string email)
 		{
 			List<Booked> bookedList = new List<Booked>();
 

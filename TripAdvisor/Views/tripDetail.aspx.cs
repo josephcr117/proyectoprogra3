@@ -37,7 +37,37 @@ namespace TripAdvisor.Views
 			}
 		}
 
-		protected void btnSaveBooked_ServerClick(object sender, EventArgs e)
+        protected void btnSaveFav_ServerClick(object sender, EventArgs e)
+        {
+            try
+            {
+                BookedController bookedController = new BookedController();
+
+                FirebaseUser user = (FirebaseUser)Session["session"];
+
+                Booked booked = new Booked
+                {
+                    Id = Convert.ToInt16(Request.QueryString["id"]),
+                    Email = user.email,
+                    Checkin = dtCheckin.Value,
+                    Checkout = dtCheckOut.Value,
+                    Adults = Convert.ToInt16(selectAdults.Value),
+                    BookedHour = "9:30 am",
+                    Total = Convert.ToDecimal(tripPrice.InnerText) * Convert.ToInt16(selectAdults.Value)
+                };
+
+                bookedController.FavBook(booked);
+
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Your trip was saved successfully')", true);
+            }
+            catch (Exception ex)
+            {
+                alertError.InnerText = ex.Message;
+                alertError.Attributes.Remove("hidden");
+            }
+        }
+
+        protected void btnSaveBooked_ServerClick(object sender, EventArgs e)
 		{
 			try
 			{

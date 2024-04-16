@@ -99,7 +99,7 @@
             </div>
         </div>
     </form>
-    <!-- Offcanvas -->
+    <!-- Offcanvas To Pay with Credit/Debit Card-->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="paymentOffcanvas" aria-labelledby="paymentOffcanvasLabel">
         <div class="offcanvas-header">
             <h5 id="paymentOffcanvasLabel">Payment Information</h5>
@@ -107,15 +107,25 @@
         </div>
         <div class="offcanvas-body">
             <div class="container">
-                <div id="tripList">
-                    <!-- Trips will be dynamically added here -->
-                </div>
-                <hr>
-                <div id="totalAmount">
-                    <strong>Total Amount: </strong>$<span id="total"></span>
-                </div>
-                <hr>
-                <div id="paymentForm">
+                <asp:Repeater ID="repPayment" runat="server">
+                    <HeaderTemplate></HeaderTemplate>
+                    <ItemTemplate>
+                        <div class="card shadow-sm" style="max-width: 25rem; margin-left: 12px;">
+                            <h5 class="card-title"><%# Eval("Name")%></h5>
+                            <hr>
+                            <strong>Total:</strong> $<label><%# Eval("Total")%></label>
+                        </div>
+                    </ItemTemplate>
+                    <FooterTemplate></FooterTemplate>
+                </asp:Repeater>
+            </div>
+            <hr>
+            <div id="totalAmount">
+                <strong>Total Amount: </strong>$<span id="total"></span>
+            </div>
+            <hr>
+            <div id="paymentForm">
+                <form action="myPayment.aspx" method="post">
                     <div class="form-group">
                         <div class="form-floating mb-4">
                             <input type="text" class="form-control" id="name" name="name" required>
@@ -135,35 +145,11 @@
                             <input type="number" class="form-control" id="cvv" name="cvv" required>
                             <label for="cvv">CVV</label>
                         </div>
-                        <a href="myPayment.aspx" class="btn btn-success mt-3">Pay Now</a>
+                        <button type="submit" class="btn btn-success mt-3">Pay Now</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
-
-
-    <script>
-        // JavaScript to dynamically populate trip list and calculate total amount
-        window.onload = function () {
-            var tripItems = document.querySelectorAll('.trip-info');
-            var tripList = document.getElementById('tripList');
-            var totalAmount = 0;
-
-            tripItems.forEach(function (item) {
-                var tripName = item.querySelector('.card-title').textContent;
-                var tripTotal = parseFloat(item.querySelector('label').textContent.replace('$', ''));
-                totalAmount += tripTotal;
-
-                var tripInfo = document.createElement('div');
-                tripInfo.classList.add('trip-item');
-                tripInfo.innerHTML = '<h5 class="card-title">' + tripName + '</h5><strong>Total:</strong> $' + tripTotal.toFixed(2);
-                tripList.appendChild(tripInfo);
-            });
-
-            // Update total amount
-            document.getElementById('total').textContent = totalAmount.toFixed(2);
-        };
-    </script>
 </body>
 </html>

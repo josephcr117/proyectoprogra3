@@ -15,7 +15,7 @@
             border-color: #fff;
         }
 
-        .card-title, .card-subtitle, .card-text, .book-list, .totales {
+        .card-title, .card-subtitle, .card-text, .book-list, .totales, .card-body {
             text-align: center;
         }
 
@@ -61,26 +61,45 @@
             <div class="card">
                 <h2 class="card-title">Libreria International</h2>
                 <h4 class="card-subtitle">Sucursal San Jose</h4>
-
                 <div class="card-body">
-                    <p class="card-text">Cliente: correo@dominio</p>
-                    <p class="card-text">Nombre: Nombre</p>
-
-                    <div class="book-list">
-                        <p>Libro1 $10.99</p>
-                        <p>Libro2 $10.99</p>
-                        <p>Libro3 $9.99</p>
-                        <p>Libro4 $7.99</p>
-                    </div>
-
-                    <div class="totales">
-                        <p>Total $36.98</p>
-                        <p>Cargado a la tarjeta ***89</p>
-                        <p>Se envia a Direccion</p>
-                        <button class="btn btn-success">Download Receipt</button>
-                    </div>
+                    <p class="card-text">Cliente: <% Response.Write(Session["userEmail"]); %></p>
+                    <p class="card-text">Nombre: <% Response.Write(Session["userName"]); %></p>
+                    <asp:Repeater ID="repReciept" runat="server">
+                        <HeaderTemplate></HeaderTemplate>
+                        <ItemTemplate>
+                            <p class="card-text">
+                                <%# Eval("Name")%>
+                            Total: $<label><%# Eval("Total")%></label>
+                            </p>
+                        </ItemTemplate>
+                        <FooterTemplate></FooterTemplate>
+                    </asp:Repeater>
+                    <p>Cargado a la tarjeta ***89</p>
+                    <p>Se envia a Direccion</p>
+                    <button id="downloadBtn" class="btn btn-success">Download Receipt</button>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    <script>
+        document.getElementById('downloadBtn').onclick = function () {
+            // Contenido de la factura
+            var facturaContenido = `Cliente: correo@dominio\nNombre: Nombre\nLibro1 $10.99\nLibro2 $10.99\nLibro3 $9.99\nLibro4 $7.99\nTotal $36.98\nCargado a la tarjeta ***89\nSe envia a Direccion`;
+
+            // Crear un elemento de enlace temporal
+            var link = document.createElement('a');
+            link.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(facturaContenido);
+            link.download = 'factura.txt';
+            link.style.display = 'none';
+            document.body.appendChild(link);
+
+            // Simular el clic en el enlace para iniciar la descarga
+            link.click();
+
+            // Eliminar el elemento de enlace temporal
+            document.body.removeChild(link);
+        };
+</script>
 </body>
 </html>

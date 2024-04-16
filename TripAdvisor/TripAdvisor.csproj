@@ -87,6 +87,7 @@
     <Content Include="DatabaseHelper\StoreProcedures\2. spSaveBooked.sql" />
     <Content Include="DatabaseHelper\StoreProcedures\3. spGetBooked.sql" />
     <Content Include="DatabaseHelper\StoreProcedures\spDeleteBooked.sql" />
+    <Content Include="DatabaseHelper\StoreProcedures\spFavBook.sql" />
     <Content Include="DatabaseHelper\StoreProcedures\spSearchTrip.sql" />
     <Content Include="Views\myBooks.aspx" />
     <Content Include="Views\myPayment.aspx" />
@@ -102,6 +103,7 @@
     <Compile Include="DatabaseHelper\Database.cs" />
     <Compile Include="Models\Booked.cs" />
     <Compile Include="Models\FirebaseUser.cs" />
+    <Compile Include="Models\Tarjetas.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\myBooks.aspx.cs">

@@ -188,9 +188,10 @@
                             </div>
                             <div class="row">
                                 <button runat="server" id="btnSaveBooked" class="btn btn-primary" onserverclick="btnSaveBooked_ServerClick">Reserve now</button>
+                                <button runat="server" id="btnSaveFav" class="btn btn-primary" onserverclick="btnSaveFav_ServerClick">Save Favorite Book</button>
+
                             </div>
                             <div runat="server" id="alertError" class="alert alert-danger" hidden="hidden" role="alert">
-                                
                             </div>
                         </div>
                     </div>
